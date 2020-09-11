@@ -17,4 +17,4 @@ VALUES
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("Patty Melt", TRUE);
+    ("Black Bean Burger", TRUE);
