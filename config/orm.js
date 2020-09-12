@@ -1,9 +1,9 @@
 const connection = require("./connection")
 
-let orm = {
+const orm = {
 
     selectAll: function (tableInput, callback) {
-        let queryString = "SELECT * FROM ?"
+        const queryString = "SELECT * FROM ??"
         connection.query(queryString, [tableInput],
             function (err, result) {
                 if (err) throw err;
