@@ -2,19 +2,19 @@
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("Bacon Cheeseburger", TRUE);
+    ("Bacon Cheeseburger", false);
 
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("Spicy Mex Burger", FALSE);
+    ("Spicy Mex Burger", false);
 
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("Breakfast Burger", FALSE);
+    ("Breakfast Burger", false);
 
 INSERT INTO burgers
     (burger_name, devoured)
 VALUES
-    ("Black Bean Burger", TRUE);
+    ("Black Bean Burger", false);
