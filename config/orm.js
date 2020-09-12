@@ -21,7 +21,7 @@ const orm = {
 
     updateOne: function (id, callback) {
         const queryString = "UPDATE burgers SET devoured = true WHERE id = ?";
-        connection.quuery(queryString, [id], function (err, result) {
+        connection.query(queryString, [id], function (err, result) {
             if (err) throw err;
             callback(result);
         });

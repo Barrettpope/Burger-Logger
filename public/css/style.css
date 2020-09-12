@@ -1,0 +1,16 @@
+body {
+    background-color: rgba(228, 227, 227);
+}
+
+.jumbotron {
+    background-color: #d79922;
+}
+
+.heading {
+    color: rgb(228, 227, 227);
+}
+
+hr {
+    width: 75%;
+    background-color: rgb(228, 227, 227);
+}

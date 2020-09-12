@@ -1,50 +1,56 @@
+<div class="jumbotron text-center mx-auto">
+    <img id="burgerImg"
+        src="https://www.jing.fm/clipimg/full/106-1069163_burger-vector-transparent-burger-vector-png.png"
+        alt="Cheeseburger Icon" width="325" height="250">
+    <hr>
+    <h1 class="display-3 heading">EAT-DA-BURGER</h1>
+</div>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-4 mx-auto">
-            <img id="burgerImg"
-                src="https://www.jing.fm/clipimg/full/106-1069163_burger-vector-transparent-burger-vector-png.png"
-                alt="Cheeseburger Icon" width="400" height="300">
-            <h1 class="display-1">Eat-Da-Burger</h1>
-            <p class="lead">Enter the name of a burger you'd like to eat</p>
-            <form action="">
+        <div class="col-md-4 text-center">
+            <h3>Your Burger Selections</h3>
+            <ul class="list-group">
+                {{#each burger}}
+                {{#unless this.devoured}}
+                <li class="list-group-item">
+                    {{burger_name}}
+                    <button id={{id}} type="button" class="btn btn-outline-secondary">Devour it!</button>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-4 text-center">
+            <form action="/api/burger" method="POST">
                 <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="5"
-                        placeholder="Enter Burger Name"></textarea>
+                    <h3 for="burgerInput">Enter Burger Name</h3>
+                    <input type="text" name="burgerInput" class="form-control text-center" id="burgerInput"
+                        placeholder="Enter the burger you'd like here">
+                    <button type="submit" class="btn btn-primary mt-4">Enter Burger</button>
                 </div>
-                <button type="submit">Submit</button>
             </form>
+        </div>
+        <div class="col-md-4 text-center">
+            <h4>Devoured Burgers</h3>
+                <ul class="list-group">
+                    {{#each burger}}
+                    {{#if this.devoured}}
+                    <li class="list-group-item">
+                        {{burger_name}}
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
         </div>
     </div>
 </div>
-
-<!-- Pass in data from server.js -->
-<ul>
-    {{#each quotes}}
-    <li>
-        <p><span class="label">ID:</span> {{this.id}}</p>
-        <p><span class="label">Quote:</span> {{this.quote}}</p>
-        <p><span class="label">Author:</span> {{this.author}}</p>
-
-        <button data-id="{{this.id}}" class="delquote">Delete</button>
-
-        <a href="/{{this.id}}">Update this quote</a>
-    </li>
-    {{/each}}
-</ul>
-
-<h2>Add a Quote</h2>
-
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="auth">Author:</label>
-        <input type="text" id="auth" name="author">
-    </div>
-
-    <div class="form-group">
-        <label for="quo">Quote:</label>
-        <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-    </div>
-
-    <button type="submit">Add Quote</button>
-</form>
+<script>
+    $("button").click(function (event) {
+        const id = event.target.id;
+        $.ajax({
+            url: `/api/burger/${id}`,
+            method: "PUT"
+        }).then(location.reload())
+    });
+</script>
