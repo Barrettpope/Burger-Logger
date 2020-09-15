@@ -28,8 +28,8 @@ To use this application, you must first create your MySQL database by running bo
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
 ## Visuals
-![](assets/burger1.png)
-![](assets/burger2.png)
+![](public/assets/burger1.png)
+![](public/assets/burger2.png)
 
 ## Deployed Application
 
