@@ -2,20 +2,20 @@
     <img id="burgerImg"
         src="https://www.jing.fm/clipimg/full/106-1069163_burger-vector-transparent-burger-vector-png.png"
         alt="Cheeseburger Icon" width="325" height="250">
-    <hr>
+    <hr class="top-hr">
     <h1 class="display-3 heading">EAT-DA-BURGER</h1>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-4 text-center">
-            <h3>Your Burger Selections</h3>
-            <ul class="list-group">
+            <h4>Burger Selections</h4>
+            <ul class="list-group burger-list">
                 {{#each burger}}
                 {{#unless this.devoured}}
                 <li class="list-group-item">
                     {{burger_name}}
-                    <button id={{id}} type="button" class="btn btn-outline-secondary">Devour it!</button>
+                    <button id={{id}} type="button" class="btn btn-outline-secondary devour-btn">Devour it!</button>
                 </li>
                 {{/unless}}
                 {{/each}}
@@ -24,24 +24,24 @@
         <div class="col-md-4 text-center">
             <form action="/api/burger" method="POST">
                 <div class="form-group">
-                    <h3 for="burgerInput">Enter Burger Name</h3>
+                    <h4 for="burgerInput">Enter Burger Name</h4>
                     <input type="text" name="burgerInput" class="form-control text-center" id="burgerInput"
-                        placeholder="Enter the burger you'd like here">
-                    <button type="submit" class="btn btn-primary mt-4">Enter Burger</button>
+                        placeholder=".......">
+                    <button type="submit" class="btn btn-primary mt-4 submit-btn">Enter Burger</button>
                 </div>
             </form>
         </div>
         <div class="col-md-4 text-center">
-            <h4>Devoured Burgers</h3>
-                <ul class="list-group">
-                    {{#each burger}}
-                    {{#if this.devoured}}
-                    <li class="list-group-item">
-                        {{burger_name}}
-                    </li>
-                    {{/if}}
-                    {{/each}}
-                </ul>
+            <h4>Devoured Burgers</h4>
+            <ul class="list-group burger-list">
+                {{#each burger}}
+                {{#if this.devoured}}
+                <li class="list-group-item">
+                    {{burger_name}}
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
         </div>
     </div>
 </div>
